@@ -27,11 +27,9 @@ void dfs(string& str,int right, vector<string>& temp){
     // string s;
     
     for(int i = 1;i<str.length();i++){
-        // s = str.substr(right,i);
-        // cout<<s<<"\n";
+        
         if(is_pallindrome(str,right,right+i-1)){
-        	// string k = {str.begin()+right-1,str.begin()+right+i};
-         //    cout<<"here "<<k<<" \n";
+       
             temp.push_back({str.begin()+right,str.begin()+right+i});
             dfs(str,right+i,temp);
             temp.pop_back();
