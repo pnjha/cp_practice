@@ -28,22 +28,17 @@ void dijkstra(){
 
 		temp = pq.top();
 		pq.pop();
-		//visited[temp.second] = true;
-		//dist[temp.second] = min(temp.first,dist[temp.second]);
 		
 		for(int i = 0;i<graph[temp.second].size();i++){
 			
 			child = graph[temp.second][i];
 
-			//if(visited[child.first]==false){
+			if(dist[child.first] > (dist[temp.second] + child.second)){
 
-				if(dist[child.first] > (dist[temp.second] + child.second)){
-
-					dist[child.first] = (dist[temp.second] + child.second);
-									
-					pq.push({dist[child.first], child.first});
-				}	
-			//}	
+				dist[child.first] = (dist[temp.second] + child.second);
+								
+				pq.push({dist[child.first], child.first});
+			}		
 		}
 	}
 }
