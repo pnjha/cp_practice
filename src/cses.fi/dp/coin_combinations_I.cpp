@@ -28,6 +28,8 @@ int dfs(vector<int>&arr, int index, int sum){
 
 int main(){
 
+	freopen("input.txt","r",stdin);
+
 	ios_base::sync_with_stdio(NULL);
 	cin.tie(NULL);
 	cout.tie(NULL);
