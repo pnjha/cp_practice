@@ -27,7 +27,7 @@ vector<vector<ll>> matrix_expo(vector<vector<ll>> a, int p){
 
 	int n = a.size();
 
-	vector<vector<ll>> res(a,vector<ll>(a,0));	
+	vector<vector<ll>> res(n,vector<ll>(n,0));	
 
 	for(int i = 0;i<n;i++)
 		res[i][i] = 1;
@@ -62,10 +62,15 @@ ll solve(vector<ll> b, vector<ll> c, ll k, ll n){
 		}
 	}
 
-	T = matrix_expo(T,n-1);
+	t = matrix_expo(t,n-1);
 
-	
+	ll ans = 0;
 
+	for(int i = 0;i<k;i++){
+		ans = (ans + (t[0][i] * b[i])%MOD)%MOD;
+	}
+
+	return ans;
 }
 
 int main(){
@@ -92,7 +97,7 @@ int main(){
 
 		cin>>n;
 
-		solve(b,c,k,n);
+		cout<<solve(b,c,k,n)<<"\n";
 	}
 
 	return 0;
