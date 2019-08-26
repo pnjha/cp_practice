@@ -8,7 +8,7 @@ int tilling_dp(int n,int m){
 
 	for(int i = m;i < n+1;i++){
 
-		dp[i] = dp[i-1] + dp[i-m];		
+		dp[i] = (dp[i-1]%MOD + dp[i-m]%MOD)%MOD;		
 	}
 
 	return dp.back()%MOD;
