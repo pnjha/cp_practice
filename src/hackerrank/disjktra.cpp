@@ -32,7 +32,7 @@ void dijsktra(int source){
 
 				if(distances[node.first] > distances[parent] + graph[parent][node.first]){
 
-					distances[node.first] > distances[parent] + graph[parent][node.first];
+					distances[node.first] = distances[parent] + graph[parent][node.first];
 
 					pq.push({distances[node.first], node.first});
 				}

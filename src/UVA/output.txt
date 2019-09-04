@@ -1,27 +1,22 @@
-The minimum cutting is 1724.
-The minimum cutting is 2486.
-The minimum cutting is 2945.
-The minimum cutting is 3924.
-The minimum cutting is 2355.
-The minimum cutting is 716.
-The minimum cutting is 3820.
-The minimum cutting is 3402.
-The minimum cutting is 435.
-The minimum cutting is 2923.
-The minimum cutting is 476.
-The minimum cutting is 2897.
-The minimum cutting is 4127.
-The minimum cutting is 1164.
-The minimum cutting is 816.
-The minimum cutting is 735.
-The minimum cutting is 4708.
-The minimum cutting is 3188.
-The minimum cutting is 3481.
-The minimum cutting is 1127.
-The minimum cutting is 4880.
-The minimum cutting is 3505.
-The minimum cutting is 598.
-The minimum cutting is 1818.
-The minimum cutting is 1139.
-The minimum cutting is 4797.
-The minimum cutting is 235.
+1 critical links
+0 - 1
+
+6 critical links
+0 - 1
+3 - 4
+6 - 13
+7 - 8
+15 - 16
+17 - 19
+
+0 critical links
+
+4 critical links
+3 - 4
+4 - 10
+7 - 9
+13 - 14
+
+2 critical links
+4 - 5
+4 - 6

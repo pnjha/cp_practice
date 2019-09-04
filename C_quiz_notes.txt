@@ -1,0 +1,96 @@
+In C, scanf returns the no. of inputs it has successfully read.
+
+The printf function returns the number of characters successfully printed on the screen. The string "GeeksQuiz" has 9 characters, so the first printf prints GeeksQuiz and returns 9.
+
+printf("%%"); printf("%c", '%'); printf("%s", "%"); to print %
+
+#include <stdio.h>
+// Assume base address of "GeeksQuiz" to be 1000
+int main()
+{
+   printf(5 + "GeeksQuiz");
+   return 0;
+}
+
+Quiz
+
+printf is a library function defined under stdio.h header file. The compiler adds 5 to the base address of the string through the expression 5 + "GeeksQuiz" . Then the string "Quiz" gets passed to the standard library function as an argument.
+
+printf("%c ", 5["GeeksQuiz"]);
+printf("%c ", "GeeksQuiz"[5]);
+Q
+
+The crux of the program lies in the expression: 5["GeeksQuiz"] This expression is broken down by the compiler as: *(5 + "GeeksQuiz"). Adding 5 to the base address of the string increments the pointer(lets say a pointer was pointing to the start(G) of the string initially) to point to Q. Applying value-of operator gives the character at the location pointed to by the pointer i.e. Q.
+
+gets() can read a string with spaces but a normal scanf() with %s can not
+gets() doesn't do any array bound testing and should not be used. 
+
+
+void read() 
+{ 
+   char str[20]; 
+   gets(str); 
+   printf("%s", str); 
+   return; 
+} 
+The code looks simple, it reads string from standard input and prints the entered string, but it suffers from Buffer Overflow as gets() doesn’t do any array bound testing. gets() keeps on reading until it sees a newline character.
+
+To avoid Buffer Overflow, fgets() should be used instead of gets() as fgets() makes sure that not more than MAX_LIMIT characters are read.
+//will work fine
+#define MAX_LIMIT 20 
+void read() 
+{ 
+   char str[MAX_LIMIT]; 
+   fgets(str, MAX_LIMIT, stdin); 
+   printf("%s", str); 
+  
+   getchar(); 
+   return; 
+} 
+
+scanf("%4s", str);
+Read maximum 4 characters from console
+
+ 
+int main()
+{
+    char *s = "Geeks Quiz";
+    int n = 7;
+    printf("%.*s", n, s);
+    return 0;
+}
+
+Geeks Q
+.* means The precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted.
+
+The return type of getchar() is int to accommodate EOF which indicates failure
+
+ Though fputs() and fwrite() can accept FILE stream stdout and can output the given string but the input string wouldn’t result in formatted (i.e. containing format specifiers) output. But fprintf() can be used for formatted output. That’s why fprintf(stdout,"=%d=",a); and printf("=%d=",a); both are equivalent. The correct answer is B.
+
+ In C, if a function name is used without parentheses, the reference to the function name simply generates a pointer to the function, which is then discarded
+
+ As per C standard C11, all the arguments of printf() are evaluated irrespective of whether they get printed or not
+
+ Memory leak occurs when programmers create a memory in heap and forget to delete it. Memory leaks are particularly serious issues for programs like daemons and servers which by definition never terminate.
+
+ What are different storage class specifiers in C?
+Ans: auto, register, static, extern
+
+ static variables get the default value as 0
+
+ What are static functions? What is their use?
+Ans:In C, functions are global by default. The “static” keyword before a function name makes it static. Unlike global functions in C, access to static functions is restricted to the file where they are declared. Therefore, when we want to restrict access to functions, we make them static. Another reason for making functions static can be reuse of the same function name in other files
+
+What is l-value?
+l-value or location value refers to an expression that can be used on left side of assignment operator. For example in expression “a = 3”, a is l-value and 3 is r-value.
+l-values are of two types:
+“nonmodifiable l-value” represent a l-value that can not be modified. const variables are “nonmodifiable l-value”.
+“modifiable l-value” represent a l-value that can be modified.
+
+What is volatile keyword?
+The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that cannot be determined by the compiler.
+Objects declared as volatile are omitted from optimization because their values can be changed by code outside the scope of current code at any time.
+
+Q.4 What is the difference between including the header file with-in angular braces < > and double quotes ” “?
+Ans. If a header file is included within < > then the compiler searches for the particular header file only within the built-in include path. If a header file is included within ” “, then the compiler searches for the particular header file first in the current working directory, if not found then in the built-in include path.
+
