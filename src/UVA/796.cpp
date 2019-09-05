@@ -19,6 +19,9 @@ void dfs(int node, int parent, int time){
 
 	for(int i = 0;i<graph[node].size();i++){
 
+		if(graph[node][i]==parent)
+			continue;
+
 		if(visited_time[graph[node][i]]==-1){
 			dfs(graph[node][i], node, time+1);
 			if(visited_time[graph[node][i]]>visited_time[node]){
@@ -26,14 +29,17 @@ void dfs(int node, int parent, int time){
 				bridges.push_back({min(node,graph[node][i]),max(node,graph[node][i])});
 			}
 		}
-	}	
-
-
-	for(int i = 0;i<graph[node].size();i++){
 		if(visited_time[graph[node][i]]!=-1 && graph[node][i]!=parent){
 			visited_time[node] = min(visited_time[node], visited_time[graph[node][i]]);	
 		}
-	}
+	}	
+
+
+	// for(int i = 0;i<graph[node].size();i++){
+	// 	if(visited_time[graph[node][i]]!=-1 && graph[node][i]!=parent){
+	// 		visited_time[node] = min(visited_time[node], visited_time[graph[node][i]]);	
+	// 	}
+	// }
 
 	// cout<<"Exiting: "<<node<<" "<<visited_time[node]<<"\n";
 }
@@ -56,21 +62,22 @@ void find_bridges(){
 
 int main(){
 
-	freopen("input.txt","r",stdin);
-	freopen("output.txt","w",stdout);
+	// freopen("input.txt","r",stdin);
+	// freopen("output.txt","w",stdout);
+
 	bool flag = true;
 	int n,a,b,m;
 	string s,num_str;
 
 	while(cin>>n){
 
-		if(!flag)
-			cout<<"\n";
+		// if(!flag)
+		// 	cout<<"\n";
 
-		flag = false;
+		// flag = false;
 
 		if(n == 0){
-			cout<<"0 critical links\n";
+			cout<<"0 critical links\n\n";
 			continue;
 		}
 
@@ -113,7 +120,7 @@ int main(){
 		for(int i = 0;i<bridges.size();i++){
 			cout<<bridges[i].first<<" - "<<bridges[i].second<<"\n";
 		}
-		
+		cout<<"\n";
 	}
 
 	return 0;
