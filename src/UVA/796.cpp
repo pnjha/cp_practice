@@ -24,22 +24,18 @@ void dfs(int node, int parent, int time){
 
 		if(visited_time[graph[node][i]]==-1){
 			dfs(graph[node][i], node, time+1);
-			if(visited_time[graph[node][i]]>visited_time[node]){
-				
+			if(visited_time[graph[node][i]]>visited_time[node]){				
 				bridges.push_back({min(node,graph[node][i]),max(node,graph[node][i])});
 			}
-		}
-		if(visited_time[graph[node][i]]!=-1 && graph[node][i]!=parent){
-			visited_time[node] = min(visited_time[node], visited_time[graph[node][i]]);	
 		}
 	}	
 
 
-	// for(int i = 0;i<graph[node].size();i++){
-	// 	if(visited_time[graph[node][i]]!=-1 && graph[node][i]!=parent){
-	// 		visited_time[node] = min(visited_time[node], visited_time[graph[node][i]]);	
-	// 	}
-	// }
+	for(int i = 0;i<graph[node].size();i++){
+		if(visited_time[graph[node][i]]!=-1 && graph[node][i]!=parent){
+			visited_time[node] = min(visited_time[node], visited_time[graph[node][i]]);	
+		}
+	}
 
 	// cout<<"Exiting: "<<node<<" "<<visited_time[node]<<"\n";
 }

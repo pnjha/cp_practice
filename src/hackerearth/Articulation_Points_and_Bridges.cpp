@@ -35,7 +35,7 @@ bool cmp(pair<int,int>&p1,pair<int,int>&p2){
 
 // 		if(visited_time[graph[index][i]]!=-1){
             
-//             low_time[index] = min(low_time[index], low_time[graph[index][i]]);
+//             low_time[index] = min(low_time[index], visited_time[graph[index][i]]);
             
             
 // 		}else{
