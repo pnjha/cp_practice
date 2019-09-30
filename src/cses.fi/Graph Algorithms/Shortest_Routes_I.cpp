@@ -1,31 +1,21 @@
 #include<bits/stdc++.h>
-
+#define ll long long int
 using namespace std;
 
-vector<vector<pair<int,unsigned long long int>>> graph;
-vector<unsigned long long int> dist;
+vector<vector<pair<int,ll>>> graph;
+vector<ll> dist;
 vector<bool> visited;
 
 void dijkstra(){
 	
-	priority_queue<pair<unsigned long long int,int> , vector<pair<unsigned long long int,int>> , greater<pair<unsigned long long int,int>>> pq;
+	priority_queue<pair<ll,int> , vector<pair<ll,int>> , greater<pair<ll,int>>> pq;
 	
 	pq.push({0,0});
 	
-	pair<unsigned long long int,int> temp,child;
+	pair<ll,int> temp,child;
 
 	while(!pq.empty()){
 		
-		/*
-		for(int i = 0;i<dist.size();i++)
-			cout<<dist[i]<<" ";
-		cout<<"\n";
-	
-		for(int i = 0;i<visited.size();i++)
-			cout<<visited[i]<<" ";
-		cout<<"\n";
-		*/
-
 		temp = pq.top();
 		pq.pop();
 		
@@ -45,14 +35,17 @@ void dijkstra(){
 
 int main(){
 
-	unsigned long long int n,m,src,dest,weight;
+	// freopen("input.txt","r",stdin);
+	// freopen("output.txt","w",stdout);
+
+	ll n,m,src,dest,weight;
 	cin>>n>>m;
 
 	graph.clear();
 	graph.resize(n);
 
 	dist.clear();
-	dist.resize(n,INT_MAX);
+	dist.resize(n,LONG_MAX);
 	dist[0] = 0;
 
 	visited.clear();
@@ -63,6 +56,11 @@ int main(){
 		graph[src-1].push_back({dest-1,weight});
 	}
 
+	// for(int i = 0;i<graph.size();i++){
+	// 	for(int j = 0;j<graph[i].size();j++){
+	// 		cout<<graph[i][j].first<<" ";
+	// 	}cout<<"\n";
+	// }
 
 	dijkstra();
 

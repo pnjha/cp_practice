@@ -1,106 +1,135 @@
-// ??L???R???L??U??R??R??R???D??U?UU??D?D?LD????D?
+// https://cses.fi/problemset/task/1625
+// ???????????????????????????????????????????????
 
 #include<bits/stdc++.h>
+#define ll long long int
 
 using namespace std;
 
-int ans = 0;
-int col_prun = 0;
-int row_prun = 0;
+string moves;
+ll ans;
+int visited[7][7];
+vector<int> dx = {-1, 0, 1, 0};
+vector<int> dy = {0, -1, 0, 1};
+string mv = "ULDR";
 
-vector<vector<bool>> visited;
-vector<int> row_sum;
-vector<int> col_sum;
 
-void dfs(string& moves,int row,int col,int cnt,int index){
+int dfs(int x, int y, int index, char m){
 
-	// cout<<row<<" "<<col<<" "<<cnt<<" "<<index<<"\n";
-
-	if(index>=moves.length()){
-		ans++;
-		return;
+	if(index == 48){
+		return 1;
 	}
 
-	// cout<<"here\n";
+	if(visited[6][0])
+		return 0;
 
-	if(row<0||col<0||row>=7||col>=7||index>=moves.length()||visited[row][col])
-		return;
+	if(m =='L' && (y == 0 || visited[x][y-1]) && x > 0 && x < 6 && !visited[x-1][y] && !visited[x+1][y]) return 0;
+	if(m =='R' && (y == 6 || visited[x][y+1]) && x > 0 && x < 6 && !visited[x-1][y] && !visited[x+1][y]) return 0;
+	if(m =='U' && (x == 0 || visited[x-1][y]) && y > 0 && y < 6 && !visited[x][y-1] && !visited[x][y+1]) return 0;
+	if(m =='D' && (x == 6 || visited[x+1][y]) && y > 0 && y < 6 && !visited[x][y-1] && !visited[x][y+1]) return 0;
 
-	if(row_sum[row]+1 == 7){
-		for(int i = 0;i<row;i++){
-			if(row_sum[i]!=7){
-				row_prun++;
-				cout<<"row: "<<row_prun<<" \n";	
-				return;
+	int k = 0;
+
+	if(moves[index] == '?'){
+
+		for(int i = 0;i<dx.size();i++){
+
+			int yy = y+dy[i];
+			int xx = x+dx[i];
+
+			if(xx<7 && xx>=0 && yy<7 && yy>=0 && !visited[xx][yy]){
+
+				visited[xx][yy] = true;
+				k += dfs(xx,yy,index+1,mv[i]);
+				visited[xx][yy] = false;
 			}
 		}
-	}
 
-	if(col_sum[col]+1 == 7){
-		for(int i = col+1;i<7;i++){
-			if(col_sum[i]!=7){
-				col_prun++;
-				cout<<"col: "<<col_prun<<" \n";
-				return;
+		return k;
+	}else{
+
+		int yy;
+		int xx;
+
+		if(moves[index]=='L'){
+
+			yy = y-1;
+			xx = x;
+
+			if(yy>=0 && !visited[xx][yy]){
+				
+				visited[xx][yy] = true;
+				k = dfs(xx,yy,index+1,'L');
+				visited[xx][yy] = false;
 			}
 		}
+		else if(moves[index]=='R'){
+
+			yy = y+1;
+			xx = x;
+			
+			if(yy<7 && !visited[xx][yy]){
+				visited[xx][yy] = true;
+				k = dfs(xx,yy,index+1,'R');
+				visited[xx][yy] = false;
+			}	
+		} 
+		else if(moves[index]=='U'){
+			
+			yy = y;
+			xx = x-1;
+
+			if(xx>=0 && !visited[xx][yy]){
+				visited[xx][yy] = true;
+				k = dfs(xx,yy,index+1,'U');
+				visited[xx][yy] = false;
+			}
+		}
+		else if(moves[index]=='D'){
+		
+			yy = y;
+			xx = x+1;
+
+			if(xx<7 && !visited[xx][yy]){
+				visited[xx][yy] = true;
+				k = dfs(xx,yy,index+1,'D');
+				visited[xx][yy] = false;
+			}	
+		}
 	}
-
-	// ans++;
-	// cout<<ans<<"\n";	
-
-	visited[row][col] = true;
-	
-	row_sum[row]++;
-	col_sum[col]++;
-
-	if((moves[index]=='R'||moves[index]=='?')){
-
-		dfs(moves,row,col+1,cnt+1,index+1);
-
-	}
-
-	if((moves[index]=='D'||moves[index]=='?')){
-
-		dfs(moves,row+1,col,cnt+1,index+1);
-
-	}
-
-	if((moves[index]=='U'||moves[index]=='?')){
-
-		dfs(moves,row-1,col,cnt+1,index+1);
-
-	}
-
-	if((moves[index]=='L'||moves[index]=='?')){
-
-		dfs(moves,row,col-1,cnt+1,index+1);
-
-	}
-
-	visited[row][col] = false;
-	row_sum[row]--;
-	col_sum[col]--;
-
+	return k;
 }
 
 int main(){
 
-	string moves;
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
 	cin>>moves;
 
-	visited.clear();
-	visited.resize(7,vector<bool>(7,false));
+	memset(visited,false,sizeof(visited));
 
-	row_sum.clear();
-	row_sum.resize(7,0);
+	visited[0][0] = true;
 
-	col_sum.clear();
-	col_sum.resize(7,0);
+	ans = 0;
 
-	dfs(moves,0,0,1,0);
+	ans = dfs(0,0,0,0);
 
 	cout<<ans<<"\n";
 
 	return 0;
 }
+
+
+/*
+bool trap(int i, int j){
+	int x=0,y=0;
+	if (i-1>=0 && vis[i-1][j]==0) y++;
+	if (i+1<7 && vis[i+1][j]==0) y++;
+	if (j-1>=0 && vis[i][j-1]==0) x++;
+	if (j+1<7 && vis[i][j+1]==0) x++;
+	if ((x==0 && y==2) || (x==2 && y==0)) return 1;
+	return 0;
+}
+*/
