@@ -14,14 +14,7 @@ void dfs(vector<int> arr, int index, int& step, int cnt){
 
 	int temp1 = step,temp2 = step,g,h = step;
 
-	for(int i = index+1;i<arr.size()-1;i++){
-				
-		if(arr[i]!=arr[i-1]){
-			g = arr[i];
-			arr[i] = arr[i-1];
-			dfs(arr,i,++temp1,cnt-1);
-			arr[i] = g;
-		}
+	for(int i = index;i<arr.size()-1;i++){
 
 		if(arr[i]!=arr[i+1]){
 			g = arr[i];

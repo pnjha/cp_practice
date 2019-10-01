@@ -56,34 +56,39 @@
 
 using namespace std;
 
-long long int get_tasks(vector<int>&arr,int time){
-	long long int sum = 0;
-	for(int i = 0;i<arr.size();i++)
+//using bisection method
+unsigned long long int get_tasks(vector<unsigned long long int>&arr,unsigned long long int time){
+	unsigned long long int sum = 0;
+	for(unsigned long long int i = 0;i<arr.size();i++)
 		sum += time/arr[i];
 	return sum;
 }
 
 int main(){
 
-	int n,t,max_ele = INT_MIN;
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
+	unsigned long long int n,t,max_ele = INT_MIN;
 	cin>>n>>t;
 
-	vector<int> arr(n);
+	vector<unsigned long long int> arr(n);
 	
-	for(int i = 0;i<arr.size();i++){
+	for(unsigned long long int i = 0;i<arr.size();i++){
 		cin>>arr[i];
 		if(max_ele<arr[i])
 			max_ele = arr[i];
 	}
 
 	if(n==1){
-		cout<<(long long int)(t*arr[0])<<"\n";
+		cout<<(unsigned long long int)(t*arr[0])<<"\n";
 		return 0;
 	}
 
-	long long int max_time = max_ele * t;
+	unsigned long long int max_time = max_ele * t;
 
-	long long int left = 1,right = max_time,mid = -1,tasks = 0;
+	unsigned long long int left = 1,right = max_time,mid = -1,tasks = 0;
 
 	while(left<right){
 
@@ -97,7 +102,6 @@ int main(){
 			left = mid+1;
 		else
 			right = mid;
-
 	}
 
 	cout<<right<<" \n";
