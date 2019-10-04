@@ -1,0 +1,112 @@
+5. Online Sum Trouble
+You are given Q queries that you want to answer. These queries are of two types:
+ 
+
+Type 1 - X Y: Replace the value of element X with Y (initial value of every element is 0)
+
+Type 2 - X: Find summation of values stores in all elements <= X. 
+
+ 
+
+Here, the queries have to be processed online (check input section for clarification).
+
+ 
+
+Input:
+
+ 
+
+The first line of input contains 3 integers Q, M1, M2. 
+The next Q lines are of the following type:
+
+1 A B
+
+or
+
+2 A
+
+ 
+
+Where, for every query: X = (A + Previous Answer) % M1 + 1, Y = (B + Previous Answer) % M2 + 1. Previous Answer is 0 initially, and is replaced by the answer for the Type 2 query, whenever encountered.
+
+ 
+
+Output:
+
+ 
+
+For every query of Type 2, print the answer in a new line.
+
+ 
+
+Constraints:
+
+ 
+
+1 <= Q <= 2 * 105
+
+2 <= M1 <= 1018
+
+2 <= M2 <= 109
+
+1 <= A <= M1
+
+1 <= B  <= M2
+
+ 
+
+For 50% testcases:
+
+1 <= Q <= 105
+
+2 <= M1 <= 109
+
+2 <= M2 <= 109
+
+1 <= A <= M1
+
+1 <= B  <= M2
+
+ 
+
+Sample Input
+
+10 10 10 
+2 6
+1 1 4
+2 6
+1 1 4
+2 2
+1 5 10
+2 6
+1 4 8
+2 5
+1 6 10
+ 
+
+ 
+
+Sample Output
+
+0
+5
+15
+11
+31
+
+ 
+
+Sample Explanation
+
+The actual queries turn out to be:
+
+2 7
+1 2 5
+2 7
+1 7 10
+2 8
+1 1 6
+2 2
+1 6 10
+2 7
+1 8 2

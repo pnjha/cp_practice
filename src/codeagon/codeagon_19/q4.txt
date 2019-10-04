@@ -1,0 +1,75 @@
+4. Too much difference
+You are given an array of N numbers. 
+
+ 
+
+For every element in the array, you can perform the following operations any number of times:
+-If the number is divisible be K, divide it by K
+-If the number is not divisible by K, multiply it by K
+
+ 
+
+Find the minimum possible difference between the maximum and the minimum element in the resulting array
+
+ 
+
+Input:
+
+ 
+
+The first line contains a single integer T, denoting the number of testcases.
+
+ 
+
+For every testcase, the first line contains integers N and K.
+
+
+The next line contains N integers, ith integer being Ai, corresponding to the elements in the array.
+
+ 
+
+Output:
+
+ 
+
+For every testcase, print the minimum possible difference between the maximum and the minimum element in the resulting array, on a new line.
+
+ 
+
+Constraints:
+
+ 
+
+>=0  T <= 20
+>=0 N <= 104
+>=0 Ai <= 109
+>=0 K <= 100
+
+ 
+
+Sample Input
+
+3
+5 5
+82 79 38 49 9 
+5 9
+47 37 75 93 89 
+5 2
+120 160 176 172 192 
+ 
+
+Sample Output
+
+44
+56
+18
+
+ 
+
+Sample Explanation
+
+- For the first testcase, it is impossible to divide any number by 5, and the most optimal solution would be to multiply the last number by 5, to get: [82, 79, 38, 49, 45]
+
+- For the second testcase, not changing the array gives the optimal answer
+
+- The most optimal array after performing a sequence of operations would be: [30, 40, 44, 43, 48]

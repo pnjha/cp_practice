@@ -1,0 +1,69 @@
+6. Shady Strings
+Slim Shady a.k.a Eminem really likes to create amazing lyrics and bars. He's looking for a new pair of words to include in his rhymes. In short, he's looking for a pair of Shady String.
+
+ 
+
+A Shady String is a palindromic string of odd length. Em has a string S and he is looking for such a pair of shady strings that are non-overlapping and exists in string S. he also wants to find such a shady string pair whose product of lengths give the maximum possible value. 
+
+ 
+
+Since Slim is busy in making a combination of "Kamikaze and Gandhi", he's looking for a coder who is "not afraid" to take up this challenge. let's help Em to create new rhymes so that you can once again "lose yourself" in his music.
+
+ 
+
+Input:
+
+The first line of input contains a string S, the shady string
+
+ 
+
+Output:
+
+Print the maximum value of the product of shady strings.
+
+ 
+
+Constraints:
+
+2 <= |S| <= 100000
+
+ 
+
+Sample Input
+
+ 
+
+aaa
+
+ 
+
+Sample Output
+
+ 
+
+1
+
+ 
+
+Sample Input
+
+ 
+
+ababb
+
+ 
+
+Sample Output
+
+ 
+
+3
+
+ 
+
+Explanation:
+
+ 
+
+ First Test Case: Maximum product is obtained using "aaa" and "a"
+ Second Test Case: Maximum product is obtained using "aba" and "b", "bab" and "a" or "bab" and "b"
