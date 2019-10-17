@@ -32,7 +32,7 @@ int fun(int vec[]){
         cnt = 0;
         size = 0;
         a=-1,b=-1;
-        
+
         for(int j=0;j<n;j++){
             if(i & (1<<j)){
 
@@ -54,6 +54,8 @@ int fun(int vec[]){
         // if(no_of_errors(temp))
         //     if (n-temp.size()<retval)
         //         retval = n-temp.size();
+
+        
     
         if(cnt<=k && retval>n-size){
             retval = n-size;        
