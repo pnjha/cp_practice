@@ -22,44 +22,45 @@ bool cmp(pair<int,int>&p1,pair<int,int>&p2){
 	}
 	return false;
 }
+{
+	// void dfs(int index, int time, int parent){
 
-// void dfs(int index, int time, int parent){
+	// 	visited_time[index] = time;
+	// 	low_time[index] = time;
+	// 	int children = 0;
 
-// 	visited_time[index] = time;
-// 	low_time[index] = time;
-// 	int children = 0;
+	// 	for(int i = 0;i<graph[index].size();i++){
+				
+	// 		if(graph[index][i] == parent) continue;
 
-// 	for(int i = 0;i<graph[index].size();i++){
-			
-// 		if(graph[index][i] == parent) continue;
+	// 		if(visited_time[graph[index][i]]!=-1){
+	            
+	//             low_time[index] = min(low_time[index], visited_time[graph[index][i]]);
+	            
+	            
+	// 		}else{
+			    
+	// 			dfs(graph[index][i],time+1, index);	
+				
+	// 			low_time[index] = min(low_time[index], low_time[graph[index][i]]);
 
-// 		if(visited_time[graph[index][i]]!=-1){
-            
-//             low_time[index] = min(low_time[index], visited_time[graph[index][i]]);
-            
-            
-// 		}else{
-		    
-// 			dfs(graph[index][i],time+1, index);	
-			
-// 			low_time[index] = min(low_time[index], low_time[graph[index][i]]);
-
-// 			if(low_time[graph[index][i]]>visited_time[index]){				
-// 				bridges.push_back({min(index,graph[index][i]),max(index,graph[index][i])});
-// 			}
-    				
-// 			if(low_time[graph[index][i]]>=visited_time[index] && root!=index){
-// 				articultaion_points.push_back(index);	
-// 			}
-			
-// 			children++;
-// 		}
-// 	}
-	
-// 	if(index == root && children>1){
-// 	    articultaion_points.push_back(index);
-// 	}
-// }
+	// 			if(low_time[graph[index][i]]>visited_time[index]){				
+	// 				bridges.push_back({min(index,graph[index][i]),max(index,graph[index][i])});
+	// 			}
+	    				
+	// 			if(low_time[graph[index][i]]>=visited_time[index] && root!=index){
+	// 				articultaion_points.push_back(index);	
+	// 			}
+				
+	// 			children++;
+	// 		}
+	// 	}
+		
+	// 	if(index == root && children>1){
+	// 	    articultaion_points.push_back(index);
+	// 	}
+	// }
+}
 
 void dfs(int index, int time, int parent){
 

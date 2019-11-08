@@ -102,7 +102,7 @@ int main(){
 		}
 
 		for(auto a: graph){
-			distances[a.first] = INT_MAX;
+			distances[a.first] = INT_MA;X
 			explored[a.first] = false;
 		}
 

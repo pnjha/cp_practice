@@ -24,22 +24,22 @@ public:
 	} 
 
 	// Declaring friend function using friend keyword 
-	// friend Distance operator+(Distance&, Distance&); 
-	Distance operator+(auto d2) // Call by reference 
-	{ 
-		// Create an object to return 
-		Distance d3; 
-
-		// Perform addition of feet and inches 
-		d3.feet = this->feet + d2.feet; 
-		d3.inch = this->inch + d2.inch; 
-
-		// Return the resulting object 
-		return d3; 
-	} 
+	friend Distance operator+(Distance&, Distance&); 
 }; 
 
 // Implementing friend function with two parameters 
+Distance operator+(Distance& d1, Distance& d2) // Call by reference 
+{ 
+	// Create an object to return 
+	Distance d3; 
+
+	// Perform addition of feet and inches 
+	d3.feet = d1.feet + d2.feet; 
+	d3.inch = d1.inch + d2.inch; 
+
+	// Return the resulting object 
+	return d3; 
+} 
 
 // Driver Code 
 int main() 

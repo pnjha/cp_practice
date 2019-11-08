@@ -1,3 +1,4 @@
+// https://cses.fi/problemset/task/1091
 #include<bits/stdc++.h>
 #define ll long long int
 
@@ -36,7 +37,5 @@ int main(){
 	      tickets.erase(x);
 	    }
 	}
-
-
 	return 0;
 }
