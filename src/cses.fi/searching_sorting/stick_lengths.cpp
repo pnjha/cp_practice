@@ -16,7 +16,7 @@ int main(){
 		cin>>arr[i];
 
 
-	// sort(arr.begin(),arr.end());
+	sort(arr.begin(),arr.end());
 
 	int target = 0;
 
