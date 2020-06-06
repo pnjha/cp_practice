@@ -28,10 +28,20 @@ int main(){
 		for(int i = 0;i<n;i++){
 			cin>>a;
 			if(flag){
-				if(ump[a-5]>0){
-					ump[a-5]--;
-					ump[a]++;
-				}else{
+				if(a == 5) ump[a]++;
+				else if(a == 10 && ump[5]>0){
+					ump[5]--;
+					ump[10]++;
+				}
+				else if(a == 15 && (ump[10]>0 || ump[5]>1)){
+					ump[15]++;
+					if(ump[10]>0){
+						ump[10]--;
+					}else if(ump[5]>1){
+						ump[5] -= 2;
+					}
+				}
+				else{
 					flag = false;
 				}
 			}
