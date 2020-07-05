@@ -7,15 +7,9 @@ int maxSumSubArray(vector<int>arr){
 	int max = 0,msf = INT_MIN;
 
 	for(int i = 0;i<arr.size();i++){
-
 		max += arr[i];
-
-		if(max<0)
-			max = 0;
-
-		if(max>msf)
-			msf = max;
-
+		if(max<0) max = 0;
+		if(max>msf) msf = max;
 	}
 	return msf;
 }

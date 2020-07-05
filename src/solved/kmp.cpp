@@ -40,8 +40,8 @@ void computeLPSArray(string pat, int M, int* lps)
 }
 
 // Prints occurrences of txt[] in pat[] 
-int KMPSearch(string pat, string txt) 
-{ 
+int KMPSearch(string pat, string txt) {
+
     int M = pat.length(); 
     int N = txt.length(); 
 
@@ -76,8 +76,7 @@ int KMPSearch(string pat, string txt)
                 i = i + 1; 
         } 
     } 
-  
-  return -1;
+    return -1;
 } 
 
   

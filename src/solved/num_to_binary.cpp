@@ -11,8 +11,7 @@ string baseX(int n, int base){
     
     string ans = "";
     
-    while(n!=0){
-    
+    while(n!=0){    
         ans = to_string(n%base) + ans;
         n = n/base;
     }

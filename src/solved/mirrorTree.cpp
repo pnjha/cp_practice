@@ -16,7 +16,7 @@ struct node* createNode(int value){
 	return root;
 }
 
-struct node * mirror(struct node *root){
+struct node* mirror(struct node *root){
 	if(!root)
 		return NULL;
 
@@ -31,7 +31,7 @@ struct node * mirror(struct node *root){
 }
 
 
-struct node *insert(struct node *root,int value){
+struct node* insert(struct node *root,int value){
 	if(!root)
 		return createNode(value);
 	if(root->value>value){
@@ -45,8 +45,7 @@ struct node *insert(struct node *root,int value){
 	
 
 void preorder(struct node *root){
-	if(!root)
-		return;
+	if(!root) return;
 	cout<<root->value<<" ";
 	preorder(root->left);
 	preorder(root->right);
@@ -54,37 +53,28 @@ void preorder(struct node *root){
 
 int isBalancedUtil(struct node* root){
     
-    if(!root)
-        return 0;
+    if(!root) return 0;
         
     int left = isBalancedUtil(root->left);
     
-    if(left==-1)
-        return -1;
+    if(left==-1) return -1;
     
     int right = isBalancedUtil(root->right);
     
-    
-    if(right==-1)
-        return -1;
-    
-    if(abs(left-right)>1)
-        return -1;
+    if(right==-1) return -1;
+    if(abs(left-right)>1) return -1;
     
     return left>right?left+1:right+1;
 } 
 
 int isBalanced(struct node* A) {
-    
-    if(isBalancedUtil(A)==-1)
-        return 0;
-    
+    if(isBalancedUtil(A)==-1) return 0;
     return 1;    
 }
-
-
-
-
+	
+	
+	
+	
 int main(){
 
 	int n,v;
@@ -99,4 +89,4 @@ int main(){
 	root = mirror(root);
 	preorder(root);
 	return 0;
-}
+}	

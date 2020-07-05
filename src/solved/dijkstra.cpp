@@ -7,14 +7,12 @@ void dj(vector<pair<int,int> > adj[], int V, int src){
     
     priority_queue< pair<int,int>, 
     vector <pair<int,int>> , greater<pair<int,int>> > pq;
- 
     vector<int> distance(V, INF);
  
     pq.push(make_pair(0, src));
     distance[src] = 0;
  
     while(!pq.empty(){
-
         int u = pq.top().second;
         pq.pop();
  
@@ -24,11 +22,9 @@ void dj(vector<pair<int,int> > adj[], int V, int src){
             int weight = x.second;
             
             if (distance[v] > distance[u] + weight){
-
                 distance[v] = distance[u] + weight;
                 pq.push(make_pair(distance[v], v));
             }
-            
         }
     }
     

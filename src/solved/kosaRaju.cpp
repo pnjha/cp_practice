@@ -47,14 +47,12 @@ int main(){
 	}
 
 	for(int i=0;i<vertices;i++){
-
 		if(visited[i]==0){
 			fillStack(i);
 		}	
 	}
 	
 	visited.assign(vertices,0);
-
 
 	while(stackVertex.empty()==false){
 		if(visited[stackVertex.top()]==0){

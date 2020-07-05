@@ -24,7 +24,6 @@ int main(){
 	struct node* head = NULL, *temp1 = NULL, *temp2 = NULL;
 
 	while(n--){
-
 		cin>>val;
 		if(head==NULL){
 			head = createNode(val);
@@ -71,16 +70,13 @@ int main(){
 				flag = true;
 				break;
 			}
-
 		}
 
 		if(flag)
 			cout<<"Loop detected\n";
 		else
 			cout<<"Loop not detected\n";
-
 	} 
-
 
 	return 0;
 }

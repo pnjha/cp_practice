@@ -1,12 +1,7 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct node {
-    
     struct node * children[26];
     int countchildren = 0;
     bool isWord = false;
@@ -18,44 +13,32 @@ struct node *createNode(){
     root->countchildren = 0;
     root->isWord = false;
     
-    for(int i=0;i<26;i++){
-        root->children[i] = NULL;
-    }
-    
+    for(int i=0;i<26;i++) root->children[i] = NULL;
     return root;
 }
 
 void insert(struct node* parent,string inputString){
-    
    int index=0;
-   struct node* newNode;
+   struct node* newNode = NULL;
    for(int i=0;i<inputString.length();i++){
-       index = inputString[i]-'a';
-       if(parent->children[index]==NULL){
-           newNode = createNode();
-           parent->children[index] = newNode;
-           
-       }
-       parent = parent->children[index];
-       parent->countchildren++;
-   }
-
-   
-   
+      index = inputString[i]-'a';
+      if(parent->children[index]==NULL){
+         newNode = createNode();
+         parent->children[index] = newNode;
+      }
+      parent = parent->children[index];
+      parent->countchildren++;
+   }   
 }
 
-
 int search(struct node* parent,string searchString){
-    
     int index=0;
-    
     for(int i=0;i<searchString.length();i++){
         index = searchString[i]-'a';
-        if(parent->children[index]==NULL)
-            return 0;
+        if(parent->children[index]==NULL) 
+          return 0;
         parent = parent->children[index];
     }
-    
     return parent->countchildren;
 }
 
