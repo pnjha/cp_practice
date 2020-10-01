@@ -1,6 +1,5 @@
 /******************************************************************************
-
-
+Longest Increasing Subsequence Methodology 
 *******************************************************************************/
 #include <iostream>
 #include <iterator>
@@ -120,22 +119,6 @@ int computLISModified(vector<int> &sequence)
                     parentReference[i] = LISArray[1][indextoreplace-1];
             }
         }
-        
-        // if(debug)
-        // {
-        //     cout << " LIS ARRAY ELEMENT " << endl;
-        //     for(auto a:LISArray[0])
-        //     {
-        //         cout << a << "  ";
-        //     }
-        //     cout << endl;
-        //     cout << " LIS ARRAY INDEX " << endl;
-        //     for(auto a:LISArray[1])
-        //     {
-        //         cout << a << "  ";
-        //     }
-        //     cout << endl;
-        // }
     }
     
     int maximumLISValue = LISArray[0].size();
@@ -158,13 +141,7 @@ int computLISModified(vector<int> &sequence)
     vector<int> vistiedSubsequences(parentReference.size(),false);
     
     while(sizeofParentArray>=0)
-    {
-        // if(vistiedSubsequences[sizeofParentArray]==true) 
-        // {
-        //     sizeofParentArray--;
-        //     continue;
-        // }
-        
+    {        
         parSubsequences.clear();
         int indextoVisit = parentReference[sizeofParentArray];
         if(indextoVisit==-1)
