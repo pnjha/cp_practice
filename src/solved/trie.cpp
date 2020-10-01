@@ -8,7 +8,6 @@ struct node {
 };
 
 struct node *createNode(){
-    
     struct node *root = (struct node *)malloc(sizeof(struct node));
     root->countchildren = 0;
     root->isWord = false;
@@ -50,13 +49,11 @@ int main() {
     struct node *root = createNode();
     for(int i=0;i<n;i++){
         cin>>str;
-        
         insert(root,str);
     }
     
     for(int i=0;i<m;i++){
         cin>>str;
-        
         cout<<search(root,str)<<"\n";
     }
     

@@ -29,7 +29,7 @@ int min_swaps(vector<int> tree){
 	vector<pair<int,int>> arr;
 	for(int i = 0;i<inorder.size();i++) arr.push_back({inorder[i],i});
 	sort(arr.begin(),arr.end());
-	int i = 0, cnt = 0;
+	int i = 0, cnt = 0, temp=0;
 	
 	while(i<inorder.size()){
 		if(arr[i].second != i){

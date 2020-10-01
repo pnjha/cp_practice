@@ -1,0 +1,59 @@
+read content, print no of no, no of alpha, no of words.
+#bin/bash
+cat filename | breakWords | grep [[A-Z,a-z]] | wc -c
+cat filename | breakWords | grep [[0-9]] | wc -c
+cat filename | breakWords | grep [[ALPHANUM]] | wc -c
+
+boolean myANDGate(boolean a, boolean b){
+	return a ? b: false;
+}
+
+boolean myORGate(boolean a, boolean b){
+	return a ? true: b;
+}
+
+vector<vector<int>> LCS(n+1,vector<int>(m+1,0));
+
+void populateLCS(string a, string b){
+	for(int i = 1;i<=n;i++){
+		for(int j = 1;j<m+1;j++){
+			if(a[i-1]==b[j-1])
+				LCS[i][j] = LCS[i-1][j-1] + 1;
+			else{
+				LCS[i][j] = max(LCS[i-1][j], LCS[i][j-1]);
+			}
+		}
+	}
+}
+
+a = 'abcde'
+b = 'ace'
+
+[[0,0,0,0]]
+[[0,1,1,1]]
+[[0,1,1,1]]
+[[0,1,2,2]]
+[[0,1,2,2]]
+[[0,1,1,3]]
+
+int findPivot(vector<int> arr){
+	int totalSum = 0, leftSum = 0, pivotIndex = -1;
+	for(int i = 0;i<arr.size();i++){
+		totalSum += arr[i];
+	}
+	for(int i = 0;i<arr.size();i++){
+		if((totalSum - arr[i] - leftSum) == leftSum){
+			pivotIndex = i;
+			return i;
+		}
+		leftSum += arr[i];
+	}
+	return -1;
+}
+
+3, -1, 0, 4, 2, 2, 7, 6, 4, 0
+totalSum = 27
+i = 6
+leftSum = 10
+
+27-7-10 == 10

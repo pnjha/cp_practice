@@ -1,0 +1,15 @@
+Q1. Introduce yourself
+Q2. Discussion on a project, you can choose any project to discuss
+Q3. Print right view of binary tree
+Q4. Print next greater element to the right of current element
+Q5. Check whether there exist a pair such that abs(a[i] - a[j]) > K, array a and K will be input
+Q6. Virtual function, with code example
+Q7. Differenc between java and cpp. Difference with respect to inheritance is important
+Q8. SQl query, based on nested query and group by
+Q9. Quention on node js, explain code snippet
+	http.createServer(function (req, res) {
+	 data = fs.readFileSync("response.json") // 5 sec
+	 res.write(data);
+	 res.end();
+	}).listen(8080);
+Q10. Explain use of containers, why is it useful?

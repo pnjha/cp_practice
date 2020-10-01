@@ -3,7 +3,6 @@
 using namespace std;
 
 struct node{
-
 	int value;
 	struct node *next;
 };
@@ -72,10 +71,8 @@ int main(){
 			}
 		}
 
-		if(flag)
-			cout<<"Loop detected\n";
-		else
-			cout<<"Loop not detected\n";
+		if(flag) cout<<"Loop detected\n";
+		else cout<<"Loop not detected\n";
 	} 
 
 	return 0;
